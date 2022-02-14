@@ -259,4 +259,6 @@ enum HitboxType {
     SEVEN;
     EIGHT;
     NINE;
+    TEN;
+    ELEVEN;
 }
