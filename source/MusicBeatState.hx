@@ -13,6 +13,11 @@ import flixel.util.FlxColor;
 import flixel.util.FlxGradient;
 import flixel.FlxState;
 import flixel.FlxBasic;
+#if android
+import flixel.input.actions.FlxActionInput;
+import ui.FlxVirtualPad;
+import ui.Hitbox;
+#end
 
 class MusicBeatState extends FlxUIState
 {
@@ -26,6 +31,85 @@ class MusicBeatState extends FlxUIState
 
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
+
+	#if android
+	var _virtualpad:FlxVirtualPad;
+	var _hitbox:Hitbox;
+	var trackedinputsUI:Array<FlxActionInput> = [];
+	var trackedinputsNOTES:Array<FlxActionInput> = [];
+	#end
+	
+	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
+		#if android
+		_virtualpad = new FlxVirtualPad(DPad, Action);
+		_virtualpad.alpha = 0.75;
+		add(_virtualpad);
+		controls.setVirtualPadUI(_virtualpad, DPad, Action);
+		trackedinputsUI = controls.trackedinputsUI;
+		controls.trackedinputsUI = [];
+		#end
+	}
+
+	/*public function addHitbox() {
+                #if android               
+		var curhitbox:HitboxType = FOUR;
+
+		switch (Note.mania){
+			case 0:
+				curhitbox = ONE;
+			case 1:
+				curhitbox = TWO;
+			case 2:
+				curhitbox = THREE;					
+			case 3:
+				curhitbox = FOUR;	
+			case 4:
+				curhitbox = FIVE;
+			case 5:
+				curhitbox = SIX;
+			case 6:
+				curhitbox = SEVEN;
+			case 7:
+				curhitbox = EIGHT;
+			case 8:
+				curhitbox = NINE;
+			case 9:
+				curhitbox = TEN;
+		        case 10:
+				curhitbox = ELEVEN;									
+			default:
+				curhitbox = FOUR;
+		}
+
+		_hitbox = new Hitbox(curcontrol);
+
+		var camcontrol = new FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		_hitbox.cameras = [camcontrol];
+
+		_hitbox.visible = false;
+		add(_hitbox);
+                #end
+	}*/
+
+        public function addPadCamera() {
+		#if android
+		var camcontrol = new flixel.FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		_virtualpad.cameras = [camcontrol];
+		#end
+	}
+	
+	override function destroy() {
+		#if android
+		controls.removeFlxInput(trackedinputsUI);
+		controls.removeFlxInput(trackedinputsNOTES);	
+		#end	
+		
+		super.destroy();
+	}
 
 	override function create() {
 		var skip:Bool = FlxTransitionableState.skipNextTransOut;
