@@ -62,7 +62,7 @@ class Hitbox extends FlxSpriteGroup
         switch (type){
             case ONE:
             {
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/1k_hint');
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/1k_hint'));
                 frameshb = Paths.getSparrowAtlas('androidcontrols/hitboxes/1k');
                 sizex = 1280;
                 
@@ -70,7 +70,7 @@ class Hitbox extends FlxSpriteGroup
             }
             case TWO:
             {
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/2k_hint');
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/2k_hint'));
                 frameshb = Paths.getSparrowAtlas('androidcontrols/hitboxes/2k');
                 sizex = 640;
                 
@@ -79,7 +79,7 @@ class Hitbox extends FlxSpriteGroup
             }
             case THREE:
             {
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/3k_hint');
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/3k_hint'));
                 frameshb = Paths.getSparrowAtlas('androidcontrols/hitboxes/3k');
                 sizex = 426;
                 
@@ -89,7 +89,7 @@ class Hitbox extends FlxSpriteGroup
             }
             case FOUR:
             {
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/4k_hint');
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/4k_hint'));
                 frameshb = Paths.getSparrowAtlas('androidcontrols/hitboxes/4k');
                 sizex = 320;
 
@@ -100,7 +100,7 @@ class Hitbox extends FlxSpriteGroup
             }
             case FIVE:
             {
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/5k_hint');
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/5k_hint'));
                 frameshb = Paths.getSparrowAtlas('androidcontrols/hitboxes/5k');
                 sizex = 256;
                 
@@ -112,7 +112,7 @@ class Hitbox extends FlxSpriteGroup
             } 
             case SIX:
             {
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/6k_hint');
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/6k_hint'));
                 frameshb = Paths.getSparrowAtlas('androidcontrols/hitboxes/6k');
                 sizex = 213;
                 
@@ -125,7 +125,7 @@ class Hitbox extends FlxSpriteGroup
             }
             case SEVEN:
             {
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/7k_hint');
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/7k_hint'));
                 frameshb = Paths.getSparrowAtlas('androidcontrols/hitboxes/7k');
                 sizex = 182;
                 
@@ -139,7 +139,7 @@ class Hitbox extends FlxSpriteGroup
             }              
             case EIGHT:
             {
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/8k_hint');
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/8k_hint'));
                 frameshb = Paths.getSparrowAtlas('androidcontrols/hitboxes/8k');
                 sizex = 160;
             
@@ -154,7 +154,7 @@ class Hitbox extends FlxSpriteGroup
             }                            
             case NINE:
             {
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/9k_hint');
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/9k_hint'));
                 frameshb = Paths.getSparrowAtlas('androidcontrols/hitboxes/9k');
                 sizex = 142;
             
@@ -170,7 +170,7 @@ class Hitbox extends FlxSpriteGroup
             }
             case TEN:
             {
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/10k_hint');
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/10k_hint'));
                 frameshb = Paths.getSparrowAtlas('androidcontrols/hitboxes/10k');
                 sizex = 128;
             
@@ -187,7 +187,7 @@ class Hitbox extends FlxSpriteGroup
             }
             case ELEVEN:
             {
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/11k_hint');
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitboxes/11k_hint'));
                 frameshb = Paths.getSparrowAtlas('androidcontrols/hitboxes/11k');
                 sizex = 116;
             
