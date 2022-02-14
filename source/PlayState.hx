@@ -170,7 +170,7 @@ class PlayState extends MusicBeatState
 	public var bads:Int = 0;
 	public var shits:Int = 0;
 	
-	public static var mania:Int = 0;
+	public static var mania:Int = 3;
 	
 	private var generatedMusic:Bool = false;
 	public var endingSong:Bool = false;
