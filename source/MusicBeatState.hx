@@ -88,7 +88,7 @@ class MusicBeatState extends FlxUIState
 		camcontrol.bgColor.alpha = 0;
 		_hitbox.cameras = [camcontrol];
 
-		_hitbox.visible = false;
+		_hitbox.visible = true;
 		add(_hitbox);
                 #end
 	}*/
