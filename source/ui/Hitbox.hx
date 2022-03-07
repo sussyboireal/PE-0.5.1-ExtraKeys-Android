@@ -44,10 +44,6 @@ class Hitbox extends FlxSpriteGroup
 
         hitbox = new FlxSpriteGroup();
         hitbox.scrollFactor.set();
-        
-        var hitbox_hint:FlxSprite = new FlxSprite(0, 0);
-        hitbox_hint.alpha = 0.3;
-        add(hitbox_hint);
 
         k1 = new FlxButton(0, 0);
         k2 = new FlxButton(0, 0);
@@ -60,6 +56,8 @@ class Hitbox extends FlxSpriteGroup
         k9 = new FlxButton(0, 0);
         k10 = new FlxButton(0, 0);
         k11 = new FlxButton(0, 0);        
+
+        var hitbox_hint:FlxSprite = new FlxSprite(0, 0);
 
         switch (type){
             case ONE:
@@ -217,9 +215,9 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(k2 = createhitbox(sizex, "k2", 1)));
                 hitbox.add(add(k3 = createhitbox(sizex * 2, "k3", 2)));
                 hitbox.add(add(k4 = createhitbox(sizex * 3, "k4",3)));    
-                hitbox.add(add(k5 = createhitbox(117 * 4, "k5",4)));
-                hitbox.add(add(k6 = createhitbox(118 * 5, "k6",5))); 
-                hitbox.add(add(k7 = createhitbox(117 * 6, "k7",6)));
+                hitbox.add(add(k5 = createhitbox(sizex * 4, "k5",4)));
+                hitbox.add(add(k6 = createhitbox(sizex * 5, "k6",5))); 
+                hitbox.add(add(k7 = createhitbox(sizex * 6, "k7",6)));
                 hitbox.add(add(k8 = createhitbox(sizex * 7, "k8",7))); 
                 hitbox.add(add(k9 = createhitbox(sizex * 8, "k9",8)));
                 hitbox.add(add(k10 = createhitbox(sizex * 9, "k10",9))); 
@@ -228,6 +226,9 @@ class Hitbox extends FlxSpriteGroup
                 array = [k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11];
             }
         }
+
+        hitbox_hint.alpha = 0.3;
+        add(hitbox_hint);
     }
 
     public function createhitbox(X:Float, framestring:String, bid:Int) {
