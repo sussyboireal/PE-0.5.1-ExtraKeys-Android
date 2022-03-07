@@ -54,7 +54,7 @@ class MusicBeatState extends FlxUIState
                 #if android               
 		var curhitbox:HitboxType = FOUR;
 
-		switch (Note.mania){
+		switch (PlayState.mania){
 			case 0:
 				curhitbox = ONE;
 			case 1:
