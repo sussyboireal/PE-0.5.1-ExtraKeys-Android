@@ -3669,7 +3669,7 @@ class PlayState extends MusicBeatState
 	}
 
 	var closestNotes:Array<Note> = [];
-	private function onKeyPress(event:KeyboardEvent, alternative:Bool = false, dk:Int):Void
+	private function onKeyPress(event:KeyboardEvent, ?alternative:Bool = false, ?dk:Int):Void
 	{
 		if (!alternative) {
 			var eventKey:FlxKey = event.keyCode;
@@ -3759,7 +3759,7 @@ class PlayState extends MusicBeatState
 		//trace('pressed: ' + controlArray);
 	}
 	
-	private function onKeyRelease(event:KeyboardEvent, alt, d):Void
+	private function onKeyRelease(event:KeyboardEvent, ?alt, ?d):Void
 	{
 		if (!alt) {
 			var eventKey:FlxKey = event.keyCode;
