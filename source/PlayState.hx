@@ -3837,11 +3837,11 @@ class PlayState extends MusicBeatState
 
 				if (_hitbox.hitbox.members[daNote.noteData].justPressed) 
 				{
-					onKeyPress(null, true, daNote.noteData);
+					onKeyPress(daNote.noteData);
 				}
 
 				for(i in 0...mental.length) {
-					if (!mental[i]) onKeyRelease(null, true, i);
+					if (!mental[i]) onKeyRelease(i);
 				}
 				#end
 
