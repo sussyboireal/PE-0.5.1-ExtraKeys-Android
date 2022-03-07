@@ -83,7 +83,7 @@ class MusicBeatState extends FlxUIState
 
 		_hitbox = new Hitbox(curcontrol);
 
-		var camcontrol = new FlxCamera();
+		var camcontrol = new flixel.FlxCamera();
 		FlxG.cameras.add(camcontrol);
 		camcontrol.bgColor.alpha = 0;
 		_hitbox.cameras = [camcontrol];
