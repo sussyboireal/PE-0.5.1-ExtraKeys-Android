@@ -1169,6 +1169,9 @@ class PlayState extends MusicBeatState
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 		#end
 
+		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
+		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
+
 		Conductor.safeZoneOffset = (ClientPrefs.safeFrames / 60) * 1000;
 		callOnLuas('onCreatePost', []);
 		
@@ -3666,12 +3669,17 @@ class PlayState extends MusicBeatState
 	}
 
 	var closestNotes:Array<Note> = [];
-	private function onKeyPress(dk:Int):Void
+	private function onKeyPress(event:KeyboardEvent, ?alternative:Bool = false, ?dk:Int):Void
 	{
-		var key:Int = dk;
+		if (!alternative) {
+			var eventKey:FlxKey = event.keyCode;
+			var key:Int = getKeyFromEvent(eventKey);
+		} else {
+			var key:Int = dk;
+		}
 		//trace('Pressed: ' + eventKey);
 
-		if (!cpuControlled && !paused)
+		if (!cpuControlled && !paused && (!alternative && key > -1 && FlxG.keys.checkStatus(eventKey, JUST_PRESSED)))
 		{
 
 			if(!boyfriend.stunned && generatedMusic && !endingSong)
@@ -3751,10 +3759,13 @@ class PlayState extends MusicBeatState
 		//trace('pressed: ' + controlArray);
 	}
 	
-	private function onKeyRelease(d):Void
+	private function onKeyRelease(event:KeyboardEvent, ?alt, ?d):Void
 	{
-		var key = d;
-		if(!cpuControlled && !paused)
+		if (!alt) {
+			var eventKey:FlxKey = event.keyCode;
+			var key:Int = getKeyFromEvent(eventKey);
+		} else var key = d;
+		if(!cpuControlled && !paused && key > -1)
 		{
 			var spr:StrumNote = playerStrums.members[key];
 			if(spr != null)
@@ -3808,14 +3819,6 @@ class PlayState extends MusicBeatState
 		return false;
 	}
 
-	private function stupidInternalCheck(data:Int, status):Bool {
-		for (i in 0...keysArray[mania][data].length) {
-			if (FlxG.keys.checkStatus(keysArray[mania][data][i], status)) return true;
-		}
-
-		return false;
-	}
-
 	private function keyShit():Void
 	{
 		// FlxG.watch.addQuick('asdfa', upP);
@@ -3825,16 +3828,6 @@ class PlayState extends MusicBeatState
 			notes.forEachAlive(function(daNote:Note)
 			{
 				#if android
-				for (i in 0...keysArray[mania].length) {
-					if (stupidInternalCheck(i, JUST_PRESSED)) {
-						onKeyPress(i);
-					}
-
-					if (stupidInternalCheck(i, JUST_RELEASED)) {
-						onKeyRelease(i);
-					}
-				}
-
 				if (_hitbox.hitbox.members[daNote.noteData].justPressed) 
 				{
 					onKeyPress(null, true, daNote.noteData);
@@ -4311,6 +4304,9 @@ class PlayState extends MusicBeatState
 			luaArray[i].stop();
 		}
 		luaArray = [];
+
+		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
+		FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 
 		super.destroy();
 	}
