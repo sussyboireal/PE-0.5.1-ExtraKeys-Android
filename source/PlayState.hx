@@ -62,6 +62,9 @@ import Shaders;
 #if sys
 import sys.FileSystem;
 #end
+#if android
+import ui.Hitbox;
+#end
 
 using StringTools;
 
