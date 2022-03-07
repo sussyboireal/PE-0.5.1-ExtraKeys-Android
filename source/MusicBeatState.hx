@@ -50,7 +50,7 @@ class MusicBeatState extends FlxUIState
 		#end
 	}
 
-	/*public function addHitbox() {
+	public function addHitbox() {
                 #if android               
 		var curhitbox:HitboxType = FOUR;
 
@@ -88,10 +88,10 @@ class MusicBeatState extends FlxUIState
 		camcontrol.bgColor.alpha = 0;
 		_hitbox.cameras = [camcontrol];
 
-		_hitbox.visible = true;
+		_hitbox.visible = false;
 		add(_hitbox);
                 #end
-	}*/
+	}
 
         public function addPadCamera() {
 		#if android
