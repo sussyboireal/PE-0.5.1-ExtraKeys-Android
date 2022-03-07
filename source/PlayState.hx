@@ -2113,10 +2113,49 @@ class PlayState extends MusicBeatState
 		
 		mania = newValue;
 
+                #if android
+		remove(_hitbox);               
+		var curhitbox:HitboxType = FOUR;
+
+		switch (newValue){
+			case 0:
+				curhitbox = ONE;
+			case 1:
+				curhitbox = TWO;
+			case 2:
+				curhitbox = THREE;					
+			case 3:
+				curhitbox = FOUR;	
+			case 4:
+				curhitbox = FIVE;
+			case 5:
+				curhitbox = SIX;
+			case 6:
+				curhitbox = SEVEN;
+			case 7:
+				curhitbox = EIGHT;
+			case 8:
+				curhitbox = NINE;
+			case 9:
+				curhitbox = TEN;
+		        case 10:
+				curhitbox = ELEVEN;									
+			default:
+				curhitbox = FOUR;
+		}
+
+		_hitbox = new Hitbox(curhitbox);
+		_hitbox.visible = false;
+		add(_hitbox);
+                #end
+
 		playerStrums.clear();
 		opponentStrums.clear();
 		strumLineNotes.clear();
 
+                #if android
+		_hitbox.visible = true;
+                #end
 		generateStaticArrows(0);
 		generateStaticArrows(1);
 	}
