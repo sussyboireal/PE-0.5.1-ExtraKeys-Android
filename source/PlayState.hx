@@ -3835,7 +3835,7 @@ class PlayState extends MusicBeatState
 					}
 				}
 
-				if (_hitbox.hitbox.members[daNote.noteData].justPressed) 
+				if (_hitbox.array[daNote.noteData].justPressed) 
 				{
 					onKeyPress(daNote.noteData);
 				}
@@ -3846,7 +3846,7 @@ class PlayState extends MusicBeatState
 				#end
 
 				// hold note functions
-				if (daNote.isSustainNote && ( #if android _hitbox.hitbox.members[daNote.noteData].pressed || #end dataKeyIsPressed(daNote.noteData))
+				if (daNote.isSustainNote && ( #if android _hitbox.array[daNote.noteData].pressed || #end dataKeyIsPressed(daNote.noteData))
 				&& daNote.canBeHit && daNote.mustPress && !daNote.tooLate 
 				&& !daNote.wasGoodHit) {
 					goodNoteHit(daNote);
