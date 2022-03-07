@@ -69,6 +69,8 @@ class Hitbox extends FlxSpriteGroup
                 sizex = 1280;
                 
                 hitbox.add(add(k1 = createhitbox(0, "k1", 0))); //
+
+                array = [k1];
             }
             case TWO:
             {
@@ -78,6 +80,8 @@ class Hitbox extends FlxSpriteGroup
                 
                 hitbox.add(add(k1 = createhitbox(0, "k1", 0)));
                 hitbox.add(add(k2 = createhitbox(sizex, "k2", 1))); //
+
+                array = [k1, k2];
             }
             case THREE:
             {
@@ -88,6 +92,8 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(k1 = createhitbox(0, "k1", 0)));
                 hitbox.add(add(k2 = createhitbox(sizex, "k2", 1)));
                 hitbox.add(add(k3 = createhitbox(sizex * 2, "k3", 2)));
+
+                array = [k1, k2, k3];
             }
             case FOUR:
             {
@@ -99,6 +105,8 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(k2 = createhitbox(sizex, "k2", 1)));
                 hitbox.add(add(k3 = createhitbox(sizex * 2, "k3", 2)));
                 hitbox.add(add(k4 = createhitbox(sizex * 3, "k4", 3)));    
+
+                array = [k1, k2, k3, k4];
             }
             case FIVE:
             {
@@ -111,6 +119,8 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(k3 = createhitbox(sizex * 2, "k3",2)));
                 hitbox.add(add(k4 = createhitbox(sizex * 3, "k4", 3)));    
                 hitbox.add(add(k5 = createhitbox(sizex * 4, "k5", 4)));
+
+                array = [k1, k2, k3, k4, k5];
             } 
             case SIX:
             {
@@ -124,6 +134,8 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(k4 = createhitbox(sizex * 3, "k4", 3)));    
                 hitbox.add(add(k5 = createhitbox(sizex * 4, "k5", 4)));
                 hitbox.add(add(k6 = createhitbox(sizex * 5, "k6", 5))); 
+
+                array = [k1, k2, k3, k4, k5, k6];
             }
             case SEVEN:
             {
@@ -138,6 +150,8 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(k5 = createhitbox(sizex * 4, "k5", 4)));
                 hitbox.add(add(k6 = createhitbox(sizex * 5, "k6", 5))); 
                 hitbox.add(add(k7 = createhitbox(sizex * 6, "k7",6))); 
+
+                array = [k1, k2, k3, k4, k5, k6, k7];
             }              
             case EIGHT:
             {
@@ -153,6 +167,8 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(k6 = createhitbox(sizex * 5, "k6", 5))); 
                 hitbox.add(add(k7 = createhitbox(sizex * 6, "k7", 6)));
                 hitbox.add(add(k8 = createhitbox(sizex * 7, "k8", 7))); 
+
+                array = [k1, k2, k3, k4, k5, k6, k7, k8];
             }                            
             case NINE:
             {
@@ -169,6 +185,8 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(k7 = createhitbox(sizex * 6, "k7", 6)));
                 hitbox.add(add(k8 = createhitbox(sizex * 7, "k8", 7))); 
                 hitbox.add(add(k9 = createhitbox(sizex * 8, "k9", 8)));
+
+                array = [k1, k2, k3, k4, k5, k6, k7, k8, k9];
             }
             case TEN:
             {
@@ -185,7 +203,9 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(k7 = createhitbox(sizex * 6, "k7",6)));
                 hitbox.add(add(k8 = createhitbox(sizex * 7, "k8",7))); 
                 hitbox.add(add(k9 = createhitbox(sizex * 8, "k9",8)));
-                hitbox.add(add(k10 = createhitbox(sizex * 9, "k10",9)));                
+                hitbox.add(add(k10 = createhitbox(sizex * 9, "k10",9)));
+
+                array = [k1, k2, k3, k4, k5, k6, k7, k8, k9, k10];                
             }
             case ELEVEN:
             {
@@ -204,9 +224,9 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(k9 = createhitbox(sizex * 8, "k9",8)));
                 hitbox.add(add(k10 = createhitbox(sizex * 9, "k10",9))); 
                 hitbox.add(add(k11 = createhitbox(sizex * 10, "k11",10))); 
-            }
 
-            array = [k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11];
+                array = [k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11];
+            }
         }
     }
 
