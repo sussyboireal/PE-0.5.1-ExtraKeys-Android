@@ -2149,6 +2149,12 @@ class PlayState extends MusicBeatState
 
 		_hitbox = new Hitbox(curhitbox);
 		_hitbox.visible = false;
+
+		var camcontrol = new flixel.FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		_hitbox.cameras = [camcontrol];
+
 		add(_hitbox);
                 #end
 
