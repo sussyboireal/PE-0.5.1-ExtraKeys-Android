@@ -3901,6 +3901,14 @@ class PlayState extends MusicBeatState
 				for(i in 0...mental.length) {
 					if (!mental[i]) onKeyRelease(i);
 				}
+
+				for (i in 0..._hitbox.array.length) {
+					if (!_hitbox.array[i].pressed || _hitbox.array[i].justReleased)
+					{
+						onKeyRelease(i);
+					}
+				}
+
 				#end
 
 				// hold note functions
