@@ -3926,7 +3926,7 @@ class PlayState extends MusicBeatState
 				}
 			});
 
-			if (keysArePressed() #if android || _hitbox.array[daNote.noteData].pressed #end && !endingSong) {
+			if (keysArePressed() /*#if android || _hitbox.array[daNote.noteData].pressed #end*/ && !endingSong) {
 				#if ACHIEVEMENTS_ALLOWED
 				var achieve:String = checkForAchievement(['oversinging']);
 				if (achieve != null) {
