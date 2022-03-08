@@ -3877,9 +3877,11 @@ class PlayState extends MusicBeatState
 	private function keyShit():Void
 	{
 		#if android
-		if (_hitbox.array[daNote.noteData].justPressed) 
-		{
-			onKeyPress(daNote.noteData);
+		for (i in 0..._hitbox.array.length) {
+			if (_hitbox.array[i].justPressed)
+			{
+				onKeyPress(i);
+			}
 		}
 		#end
 
