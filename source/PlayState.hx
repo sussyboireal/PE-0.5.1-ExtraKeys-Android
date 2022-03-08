@@ -3876,13 +3876,20 @@ class PlayState extends MusicBeatState
 
 	private function keyShit():Void
 	{
+		#if android
+		if (_hitbox.array[daNote.noteData].justPressed) 
+		{
+			onKeyPress(daNote.noteData);
+		}
+		#end
+
 		// FlxG.watch.addQuick('asdfa', upP);
 		if (!boyfriend.stunned && generatedMusic)
 		{
 			// rewritten inputs???
 			notes.forEachAlive(function(daNote:Note)
 			{
-				#if android
+				/*#if android
 				for (i in 0...keysArray[mania].length) {
 					if (stupidInternalCheck(i, JUST_PRESSED)) {
 						onKeyPress(i);
@@ -3893,23 +3900,13 @@ class PlayState extends MusicBeatState
 					}
 				}
 
-				if (_hitbox.array[daNote.noteData].justPressed) 
-				{
-					onKeyPress(daNote.noteData);
-				}
-
-				for(i in 0...mental.length) {
-					if (!mental[i]) onKeyRelease(i);
-				}
-
 				for (i in 0..._hitbox.array.length) {
 					if (!_hitbox.array[i].pressed || _hitbox.array[i].justReleased)
 					{
 						onKeyRelease(i);
 					}
 				}
-
-				#end
+				#end*/
 
 				// hold note functions
 				switch(ClientPrefs.inputSystem) {
@@ -3927,7 +3924,7 @@ class PlayState extends MusicBeatState
 				}
 			});
 
-			if (keysArePressed() && !endingSong) {
+			if (keysArePressed() #if android _hitbox.array[daNote.noteData].pressed || #end && !endingSong) {
 				#if ACHIEVEMENTS_ALLOWED
 				var achieve:String = checkForAchievement(['oversinging']);
 				if (achieve != null) {
@@ -3937,6 +3934,15 @@ class PlayState extends MusicBeatState
 			} else if (boyfriend.holdTimer > Conductor.stepCrochet * 0.001 * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing')
 			&& !boyfriend.animation.curAnim.name.endsWith('miss'))
 				boyfriend.dance();
+
+			#if android
+			for (i in 0..._hitbox.array.length) {
+				if (_hitbox.array[i].justReleased)
+				{
+					onKeyRelease(i);
+				}
+			}
+			#end
 		}
 	}
 
